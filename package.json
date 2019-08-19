@@ -1,0 +1,40 @@
+{
+  "name": "webpack-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --open --config ./build/webpack.dev.conf.js",
+    "build": "webpack --config ./build/webpack.build.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.0",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-env": "^7.5.4",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.0.3",
+    "css-loader": "^3.0.0",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.10",
+    "file-loader": "^4.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "owl.carousel": "^2.3.4",
+    "postcss-loader": "^3.0.0",
+    "purecss": "^1.0.1",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.36.0",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.1"
+  }
+}
