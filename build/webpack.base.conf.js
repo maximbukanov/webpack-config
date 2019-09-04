@@ -4,8 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack');
-// const autoprefixer = require('autoprefixer');
-const devMode = process.env.NODE_ENV !== 'production';
 
 const PATHS = {
     src: path.join(__dirname, '../src'),
@@ -24,7 +22,6 @@ module.exports = {
     },
     entry: {
         app: PATHS.src,
-        // module: `${PATHS.src}/your-module.js`,
     },
     output: {
         filename: `js/[name].[hash].js`,
@@ -69,13 +66,13 @@ module.exports = {
                 test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'file-loader',
                 options: {
-                    name: '[name].[ext]'
+                    name: `./${PATHS.assets}fonts/[name].[ext]`
                 }
             }, {
                 test: /\.(png|jpg|gif|svg)$/,
                 loader: 'file-loader',
                 options: {
-                    name: '[name].[ext]'
+                    name: `./${PATHS.assets}img/[name].[ext]`
                 }
             }, {
                 test: /\.scss$/,
@@ -120,15 +117,14 @@ module.exports = {
             filename: `css/[name].[hash].css`,
         }),
         new CopyWebpackPlugin([
-            { from: `${PATHS.src}/${PATHS.assets}img`, to: `img` },
-            { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `fonts` },
-            { from: `${PATHS.src}/static`, to: '' },
+            { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.dist}/${PATHS.assets}img` },
+            { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.dist}/${PATHS.assets}fonts` }
         ]),
-        new webpack.ProvidePlugin({
+        /*new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
             'window.jQuery': 'jquery'
-        }),
+        }),*/
 
         // Automatic creation any html pages (Don't forget to RERUN dev server)
         // see more: https://github.com/vedees/webpack-template/blob/master/README.md#create-another-html-files
